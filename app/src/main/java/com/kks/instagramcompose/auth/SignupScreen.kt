@@ -21,8 +21,11 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.kks.instagramcompose.DestinationScreen
 import com.kks.instagramcompose.InstagramViewModel
 import com.kks.instagramcompose.R
+import com.kks.instagramcompose.main.CommonProgressSpinner
+import com.kks.instagramcompose.main.navigateTo
 import com.kks.instagramcompose.ui.theme.SkyBlue500
 import com.kks.instagramcompose.ui.theme.SkyBlue700
 
@@ -45,7 +48,7 @@ fun SignupScreen(navController: NavController, vm: InstagramViewModel){
             val passState = remember { mutableStateOf(TextFieldValue())}
 
             Image(
-                painter = painterResource(id = R.drawable.jetpack),
+                painter = painterResource(id = R.drawable.instagram_logo),
                 contentDescription = "Instagram Compose",
                 modifier = Modifier
                     .width(200.dp)
@@ -79,16 +82,30 @@ fun SignupScreen(navController: NavController, vm: InstagramViewModel){
                 visualTransformation = PasswordVisualTransformation()
             )
             Button(
-                onClick = {},
+                onClick = {
+                          vm.onSignup(
+                              usernameState.value.text,
+                              emailState.value.text,
+                              passState.value.text
+                          )
+                },
                 modifier = Modifier.padding(8.dp)
             ) {
                 Text(text = "가입하기")
             }
-            Text(text = "이미 가입하셨다면 로그인하세요!",
+            Text(text = "이미 가입하셨다면 로그인을 해주세요 :)",
                  color = SkyBlue700,
                  modifier = Modifier
                      .padding(8.dp)
-                     .clickable { })
+                     .clickable {
+                         navigateTo(navController, DestinationScreen.Login)
+                     }
+            )
+        }
+
+        val isLoading = vm.isProgress.value
+        if (isLoading) {
+            CommonProgressSpinner()
         }
     }
 }
