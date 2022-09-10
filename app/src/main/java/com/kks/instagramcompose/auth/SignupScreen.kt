@@ -51,14 +51,14 @@ fun SignupScreen(navController: NavController, vm: InstagramViewModel){
                 painter = painterResource(id = R.drawable.instagram_logo),
                 contentDescription = "Instagram Compose",
                 modifier = Modifier
-                    .width(200.dp)
-                    .padding(top = 16.dp)
+                    .width(300.dp)
+                    .padding(top = 75.dp)
                     .padding(8.dp)
             )
 
             Text(
                 text = "인스타그램 가입하기",
-                modifier = Modifier.padding(8.dp),
+                modifier = Modifier.padding(20.dp),
                 fontSize = 30.sp,
                 fontFamily = FontFamily.SansSerif
             )

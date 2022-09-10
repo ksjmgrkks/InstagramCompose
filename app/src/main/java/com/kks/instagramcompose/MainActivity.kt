@@ -54,7 +54,7 @@ fun InstagramApp() {
         composable(DestinationScreen.Signup.route){
             SignupScreen(navController = navController, vm = vm)
         }
-        composable(DestinationScreen.Signup.route){
+        composable(DestinationScreen.Login.route){
             LoginScreen(navController = navController, vm = vm)
         }
     }

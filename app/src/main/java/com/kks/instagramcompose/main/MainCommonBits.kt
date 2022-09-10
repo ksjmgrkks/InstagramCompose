@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
 import com.kks.instagramcompose.DestinationScreen
@@ -32,15 +33,15 @@ fun CommonProgressSpinner() {
     Row(
         modifier = Modifier
             .alpha(0.5f)
-            .background(SkyBlue700)
+            .background(Color.Gray)
             .clickable(enabled = false) {
             }
             .fillMaxSize(),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically        
     ) {
-        LinearProgressIndicator()
-//        CircularProgressIndicator()
+//        LinearProgressIndicator()
+        CircularProgressIndicator()
     }
 }
 
